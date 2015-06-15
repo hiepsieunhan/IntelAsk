@@ -1,6 +1,4 @@
-package poorguy.intelask.activity.authorization;
-
-import android.content.Context;
+package poorguy.intelask.authorization;
 
 import com.parse.LogInCallback;
 import com.parse.LogOutCallback;
@@ -94,7 +92,7 @@ public class AuthorizationManager {
 
     private int validate(String username, String password, String repassword, String email) {
 
-        // TODO: add check here
+        // TODO: add check here : done
         if ( email != null && !isValidEmail(email) )
             return INVALID_EMAIL;
         if ( username != null && !isValidUsername(username) )

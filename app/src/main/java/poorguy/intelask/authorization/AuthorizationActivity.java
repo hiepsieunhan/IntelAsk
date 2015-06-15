@@ -1,4 +1,4 @@
-package poorguy.intelask.activity.authorization;
+package poorguy.intelask.authorization;
 
 import android.app.Activity;
 import android.os.Bundle;
