@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/author"
+            android:text="Tuan Anh"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="9 days"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="10dp"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"/>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/question"
+        android:textStyle="bold"
+        android:text="adasfadjsdgsdjhsdjghasdgjhsdgjkahsdgksjhgkjdshgkajsdhgkjfascas"
+        android:textSize="16sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numAnswer"
+            android:text="1 answer"
+            android:paddingLeft="20dp"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tra Loi"
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textStyle="bold"
+            android:background="#d6f5ff"
+            android:textColor="#33d6ff" />
+    </LinearLayout>
+
+</LinearLayout>
