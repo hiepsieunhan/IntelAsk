@@ -52,8 +52,21 @@ public class AnswerManager {
         });
     }
 
+    public void addNewAnswer(String answerStr, OnSaveAnswerListener callback) {
+        Answer answer = new Answer();
+        answer.put(Answer.KEY_QUESTION, this.question.getParseObject());
+        answer.put(Answer.KEY_USER, this.currentUser);
+        answer.put(Answer.KEY_ANSWER, answerStr);
+        answer.save(callback);
+    }
+
     public interface OnRetrieveAnswerListener {
         public void success(List<Answer> answers);
+        public void error(int code);
+    }
+
+    public interface OnSaveAnswerListener {
+        public void success(Answer answer);
         public void error(int code);
     }
 }

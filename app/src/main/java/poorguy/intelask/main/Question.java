@@ -38,6 +38,10 @@ public class Question {
         return question.getString(attr);
     }
 
+    public ParseObject getParseObject() {
+        return this.question;
+    }
+
     public void put(String attr, String value) {
         this.question.put(attr, value);
     }
@@ -54,7 +58,7 @@ public class Question {
         this.question.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if ( e != null )
+                if ( e == null )
                     callback.success(Question.this);
                 else
                     callback.error(QuestionManager.NETWORK_ERROR);
