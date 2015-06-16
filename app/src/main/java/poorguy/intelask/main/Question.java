@@ -16,6 +16,7 @@ public class Question {
     public final static String KEY_USER = "user";
     public final static String KEY_LAST_ANSWER = "lastAnswer";
     public final static String KEY_CREATED_AT = "createdAt";
+    public final static String KEY_NUM_ANSWER = "numAnswer";
     public final static String KET_UPDATED_AT = "updatedAt";
 
     private ParseObject question;
@@ -33,6 +34,13 @@ public class Question {
 
     }
 
+    public Date getUpdatedAt() {
+        return question.getUpdatedAt();
+    }
+
+    public int getInt(String attr) {
+        return question.getInt(attr);
+    }
 
     public String getString(String attr) {
         return question.getString(attr);
