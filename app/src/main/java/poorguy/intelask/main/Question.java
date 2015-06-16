@@ -1,6 +1,8 @@
 package poorguy.intelask.main;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.util.Date;
 
@@ -22,6 +24,10 @@ public class Question {
         this.question = question;
     }
 
+    public Question() {
+        this.question = new ParseObject(TALBE);
+    }
+
     public String getObjectId() {
         return question.getObjectId();
 
@@ -30,6 +36,30 @@ public class Question {
 
     public String getString(String attr) {
         return question.getString(attr);
+    }
+
+    public void put(String attr, String value) {
+        this.question.put(attr, value);
+    }
+
+    public void put(String attr, ParseObject value) {
+        this.question.put(attr, value);
+    }
+
+    public void put(String attr, Date value) {
+        this.question.put(attr, value);
+    }
+
+    public void save(final QuestionManager.OnSaveQuestionListener callback) {
+        this.question.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if ( e != null )
+                    callback.success(Question.this);
+                else
+                    callback.error(QuestionManager.NETWORK_ERROR);
+            }
+        });
     }
 
 }

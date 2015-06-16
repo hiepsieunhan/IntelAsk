@@ -7,6 +7,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -49,9 +50,13 @@ public class QuestionManager {
         });
     }
 
-    public void addNewQuestion(String Question) {
+    public void addNewQuestion(String questionStr, OnSaveQuestionListener callback) {
         // TODO: add new question here
-        
+        Question question = new Question();
+        question.put(Question.KEY_QUESTION, questionStr);
+        question.put(Question.KEY_USER, currentUser);
+        question.put(Question.KEY_LAST_ANSWER, new Date());
+        question.save(callback);
     }
 
     public interface OnRetrieveQuestionListener {
@@ -59,6 +64,9 @@ public class QuestionManager {
         public void error(int code);
     }
 
-
+    public interface OnSaveQuestionListener {
+        public void success(Question question);
+        public void error(int code);
+    }
 
 }
