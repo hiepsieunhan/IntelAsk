@@ -16,15 +16,20 @@ public class Question {
     public final static String KEY_CREATED_AT = "createdAt";
     public final static String KET_UPDATED_AT = "updatedAt";
 
-    private String id;
-    private String question;
-    private String user;
-    private Date lastAnswer;
-    private Date createdAt;
-    private Date updatedAt;
+    private ParseObject question;
 
     public Question(ParseObject question) {
-        
+        this.question = question;
+    }
+
+    public String getObjectId() {
+        return question.getObjectId();
+
+    }
+
+
+    public String getString(String attr) {
+        return question.getString(attr);
     }
 
 }

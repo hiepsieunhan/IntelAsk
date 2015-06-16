@@ -6,6 +6,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ public class QuestionManager {
     private final static int RETRIEVE_LIMIT = 20;
     private int numQuestion;
     private ParseUser currentUser;
+    public static final int NETWORK_ERROR = 1;
 
     public QuestionManager(ParseUser currentUser) {
         this.currentUser = currentUser;
@@ -25,20 +27,36 @@ public class QuestionManager {
         numQuestion = 0;
     }
 
-    public void retrieveNext() {
-        // TODO: retrieve Next 20 question here
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Question");
+    public void retrieveNext(final OnRetrieveQuestionListener callback) {
+        // TODO: retrieve Next 20 question here // done
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(Question.TALBE);
         query.setSkip(numQuestion);
-        query.addDescendingOrder("lastAnswer");
+        query.addDescendingOrder(Question.KEY_LAST_ANSWER);
         query.setLimit(RETRIEVE_LIMIT);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> list, ParseException e) {
-                if ( e != null ) {
-
-                }
+                List<Question> questions = new ArrayList<Question>();
+                if (e == null) {
+                    for (ParseObject question : list) {
+                        questions.add(new Question(question));
+                        numQuestion++;
+                    }
+                    callback.success(questions);
+                } else
+                    callback.error(NETWORK_ERROR);
             }
         });
+    }
+
+    public void addNewQuestion(String Question) {
+        // TODO: add new question here
+        
+    }
+
+    public interface OnRetrieveQuestionListener {
+        public void success(List<Question> questions);
+        public void error(int code);
     }
 
 
