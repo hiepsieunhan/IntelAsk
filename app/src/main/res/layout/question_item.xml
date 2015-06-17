@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:paddingBottom="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -57,14 +58,14 @@
             android:id="@+id/numAnswer"
             android:text="1 answer"
             android:paddingLeft="20dp"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tra Loi"
+            android:text="@string/answer_button"
             android:textSize="12sp"
             android:layout_marginLeft="20dp"
             android:paddingTop="5dp"

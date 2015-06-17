@@ -3,5 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="num_answer">Câu Trả Lời</string>L
+    <string name="num_answer">Câu Trả Lời</string>
+    <string name="answer_button">Trả Lời</string>L
 </resources>

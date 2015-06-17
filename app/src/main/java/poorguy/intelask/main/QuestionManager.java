@@ -1,5 +1,7 @@
 package poorguy.intelask.main;
 
+import android.util.Log;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -14,6 +16,7 @@ import java.util.List;
  * Created by nguyentuananh on 14/6/15.
  */
 public class QuestionManager {
+    private final static String TAG = "QuestionManager";
     private final static int RETRIEVE_LIMIT = 20;
     private int numQuestion;
     private ParseUser currentUser;
@@ -43,6 +46,7 @@ public class QuestionManager {
                         questions.add(new Question(question));
                         numQuestion++;
                     }
+                    Log.d(TAG, new Integer(list.size()).toString() );
                     callback.success(questions);
                 } else
                     callback.error(NETWORK_ERROR);
