@@ -21,7 +21,8 @@
             android:paddingBottom="6dp"
             android:paddingLeft="10dp"
             android:textSize="13sp"
-            android:textColor="@android:color/darker_gray"/>
+            android:textColor="@android:color/darker_gray"
+            android:typeface="serif"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
             android:paddingRight="10dp"
             android:textSize="13sp"
             android:textColor="@android:color/darker_gray"
-            android:id="@+id/question_date"/>
+            android:id="@+id/question_date"
+            android:typeface="serif"/>
 
     </RelativeLayout>
     <TextView
@@ -43,7 +45,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/question"
         android:textStyle="bold"
-        android:text="adasfadjsdgsdjhsdjghasdgjhsdgjkahsdgksjhgkjdshgkajsdhgkjfascas"
+        android:text="Make me happy if you can, show me how to do that"
         android:textSize="16sp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"/>
@@ -51,7 +53,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:gravity="right">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,13 +64,15 @@
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
             android:paddingTop="6dp"
-            android:paddingBottom="6dp"/>
+            android:paddingBottom="6dp"
+            android:typeface="serif"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/answer_button"
             android:textSize="12sp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:paddingLeft="15dp"
@@ -75,7 +80,8 @@
             android:textStyle="bold"
             android:background="#d6f5ff"
             android:textColor="#33d6ff"
-            android:id="@+id/write_answer"/>
+            android:id="@+id/write_answer"
+            android:typeface="serif"/>
     </LinearLayout>
 
 </LinearLayout>

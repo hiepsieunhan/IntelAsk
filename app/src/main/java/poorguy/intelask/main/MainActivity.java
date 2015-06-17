@@ -39,7 +39,6 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void success(List<Question> questions) {
                 adapter.addQuestions(questions);
-
             }
 
             @Override

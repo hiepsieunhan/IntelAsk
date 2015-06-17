@@ -20,6 +20,8 @@ public class AuthorizationManager {
     public static final int RESULT_OK = 0;
     public static final int ACCOUNT_NOT_FOUND = 6;
 
+    public static final String KEY_NAME = "name";
+
     public AuthorizationManager() {
     }
 
@@ -46,7 +48,7 @@ public class AuthorizationManager {
         user.setUsername(email);
         user.setPassword(password);
         user.setEmail(email);
-        user.put("name", username);
+        user.put(KEY_NAME, username);
 
         user.signUpInBackground(new SignUpCallback() {
             @Override
@@ -139,5 +141,11 @@ public class AuthorizationManager {
         public void error(int code);
         public void success(int code);
     }
+
+    public interface GetUserCallBack {
+        public void error(int code);
+        public void success(ParseUser user);
+    }
+
 
 }

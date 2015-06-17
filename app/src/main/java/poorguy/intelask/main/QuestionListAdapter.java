@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.parse.ParseUser;
+
 import java.util.Date;
 import java.util.List;
 
+import poorguy.intelask.authorization.AuthorizationManager;
 import poorguy.techask.R;
 
 /**
@@ -55,7 +58,26 @@ public class QuestionListAdapter extends ArrayAdapter<Question> {
                 new Date().getTime(),
                 DateUtils.SECOND_IN_MILLIS).toString();
 
-        holder.author.setText(question.getString(Question.KEY_USER));
+        //holder.author.setText(question.getUserName());
+        final TextView author = holder.author;
+        author.setText("Unknown");
+        question.getUser(new AuthorizationManager.GetUserCallBack() {
+
+            @Override
+            public void error(int code) {
+                // TODO : report error here
+                if ( code == AuthorizationManager.NETWORK_ERROR ) {
+
+                }
+            }
+
+            @Override
+            public void success(ParseUser user) {
+                Log.d(TAG, user.getString(AuthorizationManager.KEY_NAME));
+                author.setText(user.getString(AuthorizationManager.KEY_NAME));
+            }
+        });
+
         holder.questionDate.setText(convertDate);
         holder.question.setText(question.getString(Question.KEY_QUESTION));
         holder.numAnswer.setText( question.getInt(Question.KEY_NUM_ANSWER)+ " " + this.mContext.getResources().getString(R.string.num_answer) );
